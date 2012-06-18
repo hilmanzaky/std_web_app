@@ -1,4 +1,24 @@
 BlackstarStdWeb::Application.routes.draw do
+  
+  authenticated :user do
+    root :to => 'home#index'
+  end
+
+  root :to => "home#index"
+
+#  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  resources :users, :only => [:show, :index]
+
+  resources :main_sliders
+
+  resources :products
+
+  resources :product_images, :only => [:show, :create, :destroy]
+
+  resources :product_categories
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

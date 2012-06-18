@@ -1,14 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-  <title>BlackstarStdWeb</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title><%= content_for?(:title) ? yield(:title) : "Corp Web" %></title>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <%#*<a class="brand" href="#">Some Store</a>%>
+        <%= link_to 'Some Store', root_path, :class => 'brand' %>
+        <div class="nav-collapse">
+          <%= render 'layouts/navigation' %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="main" role="main">
+    <div class="container">
+      <%#*<div class="content">%>
+        <div class="row">
+          <div class="span12">
+            <%= render :partial => 'layouts/flash', :locals => { :flash => flash } %>
+            <%= yield %>
+          </div>
+        </div>
+        <footer>
+        </footer>
+      <%#*</div>%>
+    </div> <!--! end of .container -->
+  </div> <!--! end of #main -->
 </body>
 </html>

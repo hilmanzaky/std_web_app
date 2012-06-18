@@ -11,5 +11,8 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.popupwindow
 //= require jquery_ujs
+//= require bootstrap
+//= require tinymce-jquery
 //= require_tree .
