@@ -1,0 +1,44 @@
+<% content_for :head do %>
+  <script type="text/javascript">
+    $(function(){
+      $('#myGallery').galleryView();
+    });
+  </script>
+<% end %>
+<div class="row">
+  <div class="span6">
+    <legend>Data Barang</legend>
+
+    <table class="table table-striped">
+
+      <tr>
+        <td><h6>Nama Barang</h6></td>
+        <td><%= @product.name %></td>
+      </tr>
+
+      <tr>
+        <td><h6>Deskripsi</h6></td>
+        <td><%= @product.description %></td>
+      </tr>
+
+      <tr>
+        <td><h6>Kategori</h6></td>
+        <td><%= @product.product_category_name %></td>
+      </tr>
+
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="span6">
+    <ul id="myGallery">
+      <% @product_images.each do |pi| %>
+        <li>
+          <%= image_tag pi.image, :class => 'no-max-width' %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<br/>
+<br/>

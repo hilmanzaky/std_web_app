@@ -1,0 +1,29 @@
+<legend>Daftar Barang</legend>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Nama Barang</th>
+      <th>Kategori</th>
+      <th>Deskripsi</th>
+      <th>Kelola</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |p| %>
+      <tr>
+        <td><%= image_tag p.product_images.first.image.url(:thumb) unless p.product_images.empty? %></td>
+        <td><%= p.name %></td>
+        <td><%= p.product_category_name %></td>
+        <td><%= p.description %></td>
+        <td>
+          <%= link_to 'Lihat', p, :class => 'btn btn-mini' %>
+          <%= link_to 'Ubah', edit_product_path(p), :class => 'btn btn-mini' %>
+          <%= link_to iconed_text('Hapus', 'icon-trash'), p, :method => :delete, :confirm => 'Apakah anda yakin?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Tambah', new_product_path, :class => 'btn' %>

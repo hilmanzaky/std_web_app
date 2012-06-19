@@ -1,0 +1,23 @@
+<legend>Kategori Barang</legend>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Kategori Barang</th>
+      <th>Kelola</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @product_categories.each do |pc| %>
+      <tr>
+        <td><%= pc.name %></td>
+        <td>
+          <%= link_to 'Lihat', pc, :class => 'btn btn-mini' %>
+          <%= link_to 'Ubah', edit_product_category_path(pc), :class => 'btn btn-mini' %>
+          <%= link_to iconed_text('Hapus', 'icon-trash'), pc, :method => :delete, :confirm => 'Apakah anda yakin?', :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Tambah', new_product_category_path, :class => 'btn' %>

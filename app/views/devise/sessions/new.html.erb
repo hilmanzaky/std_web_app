@@ -1,0 +1,35 @@
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-horizontal' }) do |f| %>
+  <fieldset>
+    <legend>Sign in</legend>
+
+    <div class="control-group">
+      <%= f.label :email, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.email_field :email, :class => 'textfield' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :password, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.password_field :password, :class => 'textfield' %>
+      </div>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div class="control-group">
+        <div class="controls">
+          <label class="checkbox inline">
+          <%= f.check_box :remember_me %> Remember me
+          </label>
+        </div>
+      </div>
+    <% end -%>
+
+    <div class="form-actions">
+      <%= f.submit "Sign in", :class => 'btn btn-primary' %>
+    </div>
+  </fieldset>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>

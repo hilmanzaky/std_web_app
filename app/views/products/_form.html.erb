@@ -1,0 +1,54 @@
+<%= form_for(@product, :html => { :class => 'form-horizontal', :multipart => true }) do |f| %>
+  <%#= render :partial => 'partials/error_messages', :locals => { :obj => @product } %>
+  <fieldset>
+    <legend>Tambah Barang</legend>
+
+    <div class="control-group">
+      <%= f.label 'Nama Barang', :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name, :class => 'textfield' %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label 'Deskripsi', :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :description, :class => 'input-xlarge', :rows => 5 %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label 'Kategori', :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :product_category_id, options_from_collection_for_select(@product_categories, :id, :name) %>
+      </div>
+    </div>
+
+    <% if action == "new" %>
+      <div class="control-group">
+        <%= f.label 'Gambar 1', :class => 'control-label' %>
+        <div class="controls">
+          <%= file_field_tag "image_1", :class => 'input-file' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label 'Gambar 2', :class => 'control-label' %>
+        <div class="controls">
+          <%= file_field_tag "image_2", :class => 'input-file' %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label 'Gambar 3', :class => 'control-label' %>
+        <div class="controls">
+          <%= file_field_tag "image_3", :class => 'input-file' %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="form-actions">
+      <%= f.submit 'Simpan', :class => 'btn btn-primary' %>
+    </div>
+  </fieldset>
+<% end %>

@@ -1,0 +1,17 @@
+<%= form_for(@product_image, :html => { :class => 'form-horizontal', :multipart => true }) do |f| %>
+  <%#= render :partial => 'partials/error_messages', :locals => { :obj => @product } %>
+  <fieldset>
+    <legend>Tambah Gambar</legend>
+    <%= f.hidden_field :product_id %>
+    <div class="control-group">
+      <%= f.label 'Gambar', :class => 'control-label' %>
+      <div class="controls">
+        <%= f.file_field :image, :class => 'input-file' %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit 'Simpan', :class => 'btn btn-primary' %>
+    </div>
+  </fieldset>
+<% end %>

@@ -1,0 +1,8 @@
+<div class="row">
+  <% @product_images.each do |pi| %>
+    <div class="span3">
+          <%= link_to image_tag(pi.image(:medium)), pi %><br/>
+          <%= link_to iconed_text('destroy', 'icon-trash'), pi, :method => :delete, :confirm => 'Apakah anda yakin?', :class => 'btn btn-mini btn-danger' %>
+    </div>
+  <% end %>
+</div>

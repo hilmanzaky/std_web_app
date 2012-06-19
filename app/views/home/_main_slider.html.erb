@@ -1,0 +1,14 @@
+<% unless @main_sliders.empty? %>
+  <table width="100%">
+    <tr>
+      <td align="center">
+        <div id='slideshowHolder'>
+          <% @main_sliders.each do |m| %>
+            <%= image_tag m.image.url %>
+          <% end %>
+        </div>
+        <%= link_to iconed_text('Manage Images', 'icon-wrench', 'black'), main_sliders_path, :class => 'btn' %>
+      </td>
+    </tr>
+  </table>
+<% end %>

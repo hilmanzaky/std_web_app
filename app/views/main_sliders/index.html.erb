@@ -1,0 +1,27 @@
+<legend>Gambar Utama</legend>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Gambar</th>
+    <th>Deskripsi</th>
+    <th></th>
+    <th>Kelola</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @main_sliders.each do |m| %>
+    <tr>
+      <td><%= image_tag m.image.url(:thumb) %></td>
+      <td><%= m.description %></td>
+      <td><%= m.created_at %></td>
+      <td>
+        <%= link_to 'Lihat', m, :class => 'btn btn-mini' %>
+        <%= link_to 'Ubah', edit_main_slider_path(m), :class => 'btn btn-mini' %>
+        <%= link_to iconed_text('Hapus', 'icon-trash'), m, :method => :delete, :confirm => 'Apakah anda yakin?', :class => 'btn btn-mini btn-danger' %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Tambah', new_main_slider_path, :class => 'btn' %>
