@@ -7,3 +7,4 @@ tmp/pids/
 tmp/sessions/
 tmp/sockets/
 Gemfile.lock
+config/database.yml
