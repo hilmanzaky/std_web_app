@@ -1,0 +1,9 @@
+db/schema.rb
+log/
+nbproject/
+public/system/
+tmp/cache/
+tmp/pids/
+tmp/sessions/
+tmp/sockets/
+Gemfile.lock
